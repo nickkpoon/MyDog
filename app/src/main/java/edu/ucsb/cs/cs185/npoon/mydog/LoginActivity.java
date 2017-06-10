@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setSupportActionBar(null);
 
         et_username = (EditText) findViewById(R.id.et_login_username);
         et_password = (EditText) findViewById(R.id.et_login_password);
@@ -31,9 +30,10 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                String username = et_username.getText().toString();
+                String password = et_password.getText().toString();
+                BackgroundTask backgroundTask = new BackgroundTask(getApplicationContext());
+                backgroundTask.execute("login", username, password);
             }
         });
 
