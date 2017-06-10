@@ -18,6 +18,10 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static edu.ucsb.cs.cs185.npoon.mydog.RecoverPasswordActivity.questionVisible;
+import static edu.ucsb.cs.cs185.npoon.mydog.RecoverPasswordActivity.recoveredPassword;
+import static edu.ucsb.cs.cs185.npoon.mydog.RecoverPasswordActivity.securityAnswer;
+import static edu.ucsb.cs.cs185.npoon.mydog.RecoverPasswordActivity.securityQuestion;
 
 /**
  * Created by Jordan Ang on 6/9/2017.
@@ -40,6 +44,8 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             login_url = "http://jordanang.com/mydog/login.php";
         } else if(type.equals("sign_up")){
             login_url = "http://jordanang.com/mydog/signup.php";
+        } else if(type.equals("check_user_exists")){
+            login_url = "http://jordanang.com/mydog/check_user_exists.php";
         }
         if(type.equals("login")){
             try {
@@ -113,6 +119,38 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else if (type.equals("check_user_exists")) {
+            try {
+                String username = params[1];
+                URL url = new URL(login_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("username", "UTF-8")+"="+URLEncoder.encode(username, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while((line = bufferedReader.readLine()) != null){
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         return null;
@@ -139,6 +177,21 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 Toast.makeText(mContext, "Account Successfully Created", Toast.LENGTH_SHORT).show();
             } else if (result.equals("taken")) {
                 Toast.makeText(mContext, "Username taken", Toast.LENGTH_SHORT).show();
+            }
+        } else if (type.equals("check_user_exists")) {
+            if (result.equals("fail")) {
+                Toast.makeText(mContext, "No account with that username exists", Toast.LENGTH_SHORT).show();
+            } else {
+                questionVisible = true;
+                int delimit1 = result.indexOf('|');
+                int delimit2 = result.indexOf('^');
+                securityQuestion = result.substring(0, delimit1);
+                securityAnswer = result.substring(delimit1+1, delimit2);
+                recoveredPassword = result.substring(delimit2+1);
+                Toast.makeText(mContext, "Answer the security question", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, RecoverPasswordActivity.class);
+                intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
             }
         }
     }

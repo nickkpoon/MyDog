@@ -46,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        tv_forgot_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RecoverPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
