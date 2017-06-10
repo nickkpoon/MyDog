@@ -30,10 +30,12 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = et_username.getText().toString();
-                String password = et_password.getText().toString();
-                BackgroundTask backgroundTask = new BackgroundTask(getApplicationContext());
-                backgroundTask.execute("login", username, password);
+                if(et_username.getText().toString().trim() != "" && et_password.getText().toString().trim() != ""){
+                    String username = et_username.getText().toString();
+                    String password = et_password.getText().toString();
+                    BackgroundTask backgroundTask = new BackgroundTask(getApplicationContext());
+                    backgroundTask.execute("login", username, password);
+                }
             }
         });
 
@@ -45,4 +47,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 }

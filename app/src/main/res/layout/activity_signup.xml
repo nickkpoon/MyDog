@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dog_bg_2"
+    android:background="#ee80deea"
     tools:context="edu.ucsb.cs.cs185.npoon.mydog.SignupActivity">
 
     <TextView
@@ -67,13 +67,23 @@
             android:inputType="textPassword"
             android:layout_marginTop="15dp"/>
         <EditText
-            android:id="@+id/et_signup_email"
+            android:id="@+id/et_security_question"
             android:layout_width="250dp"
             android:layout_height="25dp"
             android:layout_marginLeft="5dp"
             android:background="#77ffffff"
             android:gravity="center"
-            android:hint="email"
+            android:hint="Create a security question"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:id="@+id/et_security_answer"
+            android:layout_width="250dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:background="#77ffffff"
+            android:gravity="center"
+            android:hint="Security answer"
             android:layout_marginTop="15dp"/>
     </LinearLayout>
 
