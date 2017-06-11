@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBE6E0"
+    android:background="@drawable/mainactivity_background"
     tools:context="edu.ucsb.cs.cs185.npoon.mydog.SplashScreen">
 
     <ImageView

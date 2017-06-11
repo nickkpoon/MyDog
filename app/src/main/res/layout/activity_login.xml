@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBE6E0"
+    android:background="@drawable/login_background"
     tools:context="edu.ucsb.cs.cs185.npoon.mydog.LoginActivity">
 
     <ImageView
+        android:id="@+id/login_logo"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/dog"
@@ -36,7 +37,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307" />
+        app:layout_constraintVertical_bias="0.292" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -65,13 +66,19 @@
                 android:background="@drawable/person" />
 
             <EditText
+                android:theme="@style/MyEditTextStyle"
                 android:id="@+id/et_login_username"
                 android:layout_width="250dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="5dp"
-                android:background="#77ffffff"
-                android:gravity="center"
-                android:hint="username" />
+                android:hint="username"
+                android:textSize="15sp"
+                android:textColor="@color/primary_text"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:background="@drawable/text_box_underline_selector"
+                />
+
         </LinearLayout>
 
         <LinearLayout
@@ -88,13 +95,20 @@
 
             <EditText
                 android:id="@+id/et_login_password"
+                android:theme="@style/MyEditTextStyle"
                 android:layout_width="250dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="5dp"
-                android:background="#77ffffff"
-                android:gravity="center"
+                android:gravity="bottom"
+                android:textSize="15sp"
                 android:hint="password"
-                android:inputType="textPassword" />
+                android:textColor="@color/primary_text"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:background="@drawable/text_box_underline_selector"
+                />
+
+
 
         </LinearLayout>
 
@@ -112,9 +126,10 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:background="#ee80deea"
+        android:background="@android:color/transparent"
         android:padding="10dp"
-        android:text="GO!"
+        android:text="Sign in"
+        android:textColor="@color/primary_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -152,14 +167,6 @@
             android:textSize="12dp"
             android:textColor="@color/primary_text"/>
 
-        <TextView
-            android:id="@+id/tv_continue"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Continue as guest"
-            android:textSize="12dp"
-            android:textColor="@color/primary_text"/>
 
 
 
