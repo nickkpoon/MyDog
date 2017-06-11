@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ee80deea"
+    android:background="#EBE6E0"
     tools:context="edu.ucsb.cs.cs185.npoon.mydog.LoginActivity">
 
     <ImageView
@@ -31,6 +31,7 @@
         android:text="@string/app_name"
         android:fontFamily="cursive"
         android:textSize="60dp"
+        android:textColor="@color/primary_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -45,6 +46,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
+        android:theme="@style/AppTheme.NoActionBar"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -138,7 +140,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create an Account"
-            android:textSize="20dp" />
+            android:textSize="15dp"
+            android:textColor="@color/primary_text"/>
 
         <TextView
             android:id="@+id/tv_forgot_pass"
@@ -146,7 +149,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Forgot my password"
-            android:textSize="14dp" />
+            android:textSize="12dp"
+            android:textColor="@color/primary_text"/>
+
+        <TextView
+            android:id="@+id/tv_continue"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue as guest"
+            android:textSize="12dp"
+            android:textColor="@color/primary_text"/>
+
+
 
     </LinearLayout>
 
