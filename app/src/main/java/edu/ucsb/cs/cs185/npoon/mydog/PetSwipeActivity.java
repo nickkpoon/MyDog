@@ -17,7 +17,7 @@ import java.util.List;
 import link.fls.swipestack.SwipeStack;
 
 public class PetSwipeActivity extends AppCompatActivity implements link.fls.swipestack.SwipeStack.SwipeStackListener {
-    public static ArrayList<PetObject> mData;
+    public static ArrayList<PetObject> mPets = new ArrayList<>();
     private SwipeStack swipeStack;
 
     @Override
@@ -26,7 +26,7 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
         setContentView(R.layout.activity_swipe_stack);
         //dummy data just to test
         swipeStack = (SwipeStack) findViewById(R.id.swipeStack);
-        swipeStack.setAdapter(new SwipeStackAdapter(mData));
+        swipeStack.setAdapter(new SwipeStackAdapter(mPets));
 
     }
 
@@ -60,7 +60,7 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
         @Override
         public String getItem(int position) {
-            String name = mData.get(position).name;
+            String name = mPets.get(position).name;
             return name;
         }
 
@@ -70,12 +70,13 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
         }
 
         @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) {
+            PetObject pet = mPets.get(position);
             convertView = getLayoutInflater().inflate(R.layout.card, parent, false);
             TextView textView = (TextView) convertView.findViewById(R.id.textViewCard);
-            textView.setText(mData.get(position).name);
+            textView.setText(pet.name);
             ImageView imageView = (ImageView) convertView.findViewById(R.id.imageViewCard);
-            imageView.setImageURI(mData.get(position).petPic);
+            imageView.setImageURI(pet.petPic);
 
             return convertView;
         }

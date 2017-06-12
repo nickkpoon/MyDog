@@ -7,13 +7,13 @@ import android.net.Uri;
  */
 
 public class PetObject {
-    public static Uri petPic;
-    public static String name;
-    public static String breed;
-    public static String info;
-    public static int age;
-    public static int phone;
-    public static char size;
+    public Uri petPic;
+    public String name;
+    public String breed;
+    public String info;
+    public int age;
+    public int phone;
+    public char size;
     public PetObject(Uri uri, String nm, String brd, String inf, int ag, int ph, char sz){
         this.petPic=uri;
         this.name=nm;
