@@ -1,23 +1,25 @@
 package edu.ucsb.cs.cs185.npoon.mydog;
 
-import android.media.Image;
+import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 import link.fls.swipestack.SwipeStack;
+
+import static edu.ucsb.cs.cs185.npoon.mydog.SavedPetActivity.savedPets;
 
 public class PetSwipeActivity extends AppCompatActivity implements link.fls.swipestack.SwipeStack.SwipeStackListener {
     public static ArrayList<PetObject> mPets = new ArrayList<>();
@@ -63,7 +65,8 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
     @Override
     public void onViewSwipedToRight(int position) {
-
+        savedPets.add(mPets.get(position));
+        Toast.makeText(getApplicationContext(), "Pet saved", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -106,5 +109,24 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
             return convertView;
         }
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.view_saved_pets, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.viewSavedPets){
+            Intent intent = new Intent(getApplicationContext(), SavedPetActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
