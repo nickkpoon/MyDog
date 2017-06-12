@@ -37,11 +37,12 @@ public class PetPostFragment extends Fragment {
     RadioButton medPet;
     RadioButton largePet;
     EditText phone;
-    Button button;
     Button sendbutton;
     NumberPicker np;
     protected static final int CAMERA_REQUEST = 0;
     protected static final int GALLERY_PICTURE = 1;
+
+    public static final int REQ_CODE_CHOOSE_PICTURE = 100;
 
 
 
@@ -51,7 +52,6 @@ public class PetPostFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.pet_post_fragment, container, false);
         petImg = (ImageView) root.findViewById(R.id.petImg);
-        button = (Button) root.findViewById(R.id.button);
         sendbutton = (Button) root.findViewById(R.id.sendButton);
         petInfo = (EditText) root.findViewById(R.id.petInfo);
         petName = (EditText) root.findViewById(R.id.petName);
@@ -90,17 +90,18 @@ public class PetPostFragment extends Fragment {
                     PetObject pet = new PetObject(uri,name,breed,info,age,ph,size);
                     mPets.add(0,pet);
                     Toast.makeText(getActivity(), "Pet created", Toast.LENGTH_SHORT).show();
-                    getActivity().getFragmentManager().popBackStack();
-                    for(int i=0; i<mPets.size(); i++){
-                        Log.d("msg", mPets.get(i).name);
-                    }
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                    getActivity().overridePendingTransition(0,0);
+                    getActivity().finish();
+
                 }
                 else{
                     Toast.makeText(getActivity(),"Must Complete ",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        button.setOnClickListener(new View.OnClickListener() {
+        petImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startDialog();
@@ -125,14 +126,10 @@ public class PetPostFragment extends Fragment {
         myAlertDialog.setPositiveButton("Gallery",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {
-                        Intent pictureActionIntent = null;
-
-                        pictureActionIntent = new Intent(
-                                Intent.ACTION_PICK,
-                                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(
-                                pictureActionIntent,
-                                GALLERY_PICTURE);
+                        Intent photoPickerIntent = new Intent();
+                        photoPickerIntent.setType("image/*");
+                        photoPickerIntent.setAction(Intent.ACTION_GET_CONTENT);
+                        startActivityForResult(Intent.createChooser(photoPickerIntent, "Select Picture"), REQ_CODE_CHOOSE_PICTURE);
 
                     }
                 });
@@ -156,10 +153,11 @@ public class PetPostFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==GALLERY_PICTURE||requestCode==CAMERA_REQUEST&&resultCode==RESULT_OK){
+        if(requestCode==REQ_CODE_CHOOSE_PICTURE||requestCode==CAMERA_REQUEST&&resultCode==RESULT_OK){
             Uri uri = data.getData();
             petImg.setImageURI(uri);
             petImg.setTag(uri);
+
         }
 
     }
