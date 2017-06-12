@@ -45,8 +45,10 @@
             android:name=".RecoverActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PetSwipeActivity" />
-        <activity android:name=".RecoverPasswordActivity"
-            android:noHistory="true"></activity>
+        <activity
+            android:name=".RecoverPasswordActivity"
+            android:noHistory="true" />
+        <activity android:name=".SavedPetActivity"></activity>
     </application>
 
 </manifest>
