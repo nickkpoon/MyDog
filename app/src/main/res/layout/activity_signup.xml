@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ee80deea"
+    android:background="@drawable/create_background"
     tools:context="edu.ucsb.cs.cs185.npoon.mydog.SignupActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create an\n Account"
+        android:textColor="@color/primary_text"
         android:gravity="center"
         android:textSize="50dp"
         android:fontFamily="cursive"
@@ -35,7 +36,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintVertical_bias="0.587">
 
         <EditText
             android:id="@+id/et_signup_username"
@@ -103,16 +106,16 @@
             android:id="@+id/btn_signup_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#ee80deea"
-            android:text="Cancel"/>
+            android:text="Cancel"
+            android:textColor="@color/primary_text"/>
 
         <Button
             android:layout_marginLeft="10dp"
             android:id="@+id/btn_signup_create"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#ee80deea"
-            android:text="Create"/>
+            android:text="Create"
+            android:textColor="@color/primary_text"/>
 
     </LinearLayout>
 

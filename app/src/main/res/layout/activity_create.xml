@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    tools:context="edu.ucsb.cs.cs185.npoon.mydog.CreateAccActivity">
+
+    <ImageView
+        android:id="@+id/login_logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/dog"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_login_title"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/app_name"
+        android:fontFamily="cursive"
+        android:textSize="60dp"
+        android:textColor="@color/primary_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.292" />
+
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@android:color/transparent"
+        android:padding="10dp"
+        android:text="Sign up"
+        android:textColor="@color/primary_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.982" />
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="220dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:theme="@style/AppTheme.NoActionBar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_title"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="7dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/person" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:background="@drawable/lock" />
+
+            <EditText
+                android:id="@+id/et_login_username"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/text_box_underline_selector"
+                android:hint="username"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:theme="@style/MyEditTextStyle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/lock" />
+
+            <EditText
+                android:id="@+id/et_login_password"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/text_box_underline_selector"
+                android:gravity="bottom"
+                android:hint="password"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:theme="@style/MyEditTextStyle" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:shape="@drawable/lock" />
+
+            <EditText
+                android:id="@+id/et_verify_password"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/text_box_underline_selector"
+                android:gravity="bottom"
+                android:hint="verify password"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:theme="@style/MyEditTextStyle" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/question" />
+
+            <EditText
+                android:id="@+id/et_security_question"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/text_box_underline_selector"
+                android:gravity="bottom"
+                android:hint="security question"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:theme="@style/MyEditTextStyle" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:shape="@drawable/lock" />
+
+            <EditText
+                android:id="@+id/et_security_answer"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/text_box_underline_selector"
+                android:gravity="bottom"
+                android:hint="security answer"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:theme="@style/MyEditTextStyle" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
