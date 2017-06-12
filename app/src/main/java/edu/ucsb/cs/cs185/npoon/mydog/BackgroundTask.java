@@ -24,7 +24,7 @@ import static edu.ucsb.cs.cs185.npoon.mydog.RecoverPasswordActivity.securityAnsw
 import static edu.ucsb.cs.cs185.npoon.mydog.RecoverPasswordActivity.securityQuestion;
 
 /**
- * Created by Jordan Ang on 6/9/2017.
+ * Created by Jordan Ang on 6/9/2017.lol
  */
 
 public class BackgroundTask extends AsyncTask<String, Void, String> {

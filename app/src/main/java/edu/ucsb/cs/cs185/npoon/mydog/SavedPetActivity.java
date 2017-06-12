@@ -1,20 +1,39 @@
 package edu.ucsb.cs.cs185.npoon.mydog;
 
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.view.View;
+import android.widget.TextView;
+
 
 import java.util.ArrayList;
+
+import static edu.ucsb.cs.cs185.npoon.mydog.R.id.textView;
 
 public class SavedPetActivity extends AppCompatActivity {
 
     public static ArrayList<PetObject> savedPets = new ArrayList<>();
 
     ListView savedPetsList;
+    TextView tv_1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.abs_layout2);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.splash_background)));
+
+
+
+
 
         PetObject a = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.germanshepherd),
                 "Lucky", "German Shepherd", "He's friendly", 2, 1111111111, '5');
@@ -45,10 +64,13 @@ public class SavedPetActivity extends AppCompatActivity {
         savedPets.add(h);
         savedPets.add(i);
 
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_pet);
 
         savedPetsList = (ListView) findViewById(R.id.lv_savedPets);
+
 
         SavedPetsListAdapter savedPetsListAdapter = new SavedPetsListAdapter(getApplicationContext(), savedPets);
         savedPetsList.setAdapter(savedPetsListAdapter);

@@ -1,6 +1,7 @@
 package edu.ucsb.cs.cs185.npoon.mydog;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -49,6 +50,7 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.splash_background)));
 
 
 

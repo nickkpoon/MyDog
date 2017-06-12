@@ -20,8 +20,8 @@
         android:layout_row="0"
         android:clickable="true"
         app:backgroundTint="@color/splash_background"
-        app:fabSize="normal"
-        app:srcCompat="@drawable/white_heart"/>
+        app:fabSize="mini"
+        app:srcCompat="@drawable/white_heart" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton5"
@@ -31,16 +31,16 @@
         android:layout_row="0"
         android:layout_weight="1"
         android:clickable="true"
-        app:backgroundTint="@color/splash_background"
-        app:fabSize="normal"
         android:tint="@android:color/white"
         android:tintMode="src_in"
+        app:backgroundTint="@color/splash_background"
+        app:fabSize="mini"
         app:srcCompat="@android:drawable/ic_delete" />
 
     <link.fls.swipestack.SwipeStack
         android:id="@+id/swipeStack"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="409dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/default_stack_spacing"
         android:layout_marginBottom="@dimen/default_stack_spacing"
