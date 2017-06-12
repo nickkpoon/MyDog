@@ -20,7 +20,7 @@
     <style name="MyEditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="colorControlActivated">#dc8f41</item>
         <item name="colorAccent">@android:color/white</item>
-        <item name="android:textColorHint">@color/primary_text</item>
+        <item name="android:textColorHint">@color/secondary_text</item>
         <item name="colorControlNormal">@color/primary_text</item>
         <item name="colorControlHighlight">@color/primary_text</item>
     </style>

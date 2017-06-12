@@ -30,17 +30,17 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
     //Dummy Data for Slideshow
 
-    PetObject a = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.pug),
-            "Rex", "Pug", "He's friendly", 2, 1111111111, '5');
-    PetObject b = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.corgy),
-            "Bailey", "Corgy", "Very Energetic", 1, 2123314512, '5');
-    PetObject c = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.lab),
-            "Charlie", "Lab", "Loves cuddling!", 4, 1472927821, '5');
-    PetObject d = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.husky),
-            "Buddy", "Husky", "Really Independent", 3, 1232222222, '5');
-    PetObject e = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.bull),
-            "Rosie", "Bull", "Always wants to play catch", 6, 1123456784, '5');
 
+    PetObject a = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.lab),
+            "Charlie", "Lab", "Loves cuddling!", 4, 1472927821, '5');
+    PetObject b = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.husky),
+            "Buddy", "Husky", "Really Independent", 3, 1232222222, '5');
+    PetObject c = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.bull),
+            "Rosie", "Bull", "Always wants to play catch", 6, 1123456784, '5');
+    PetObject d = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.pug),
+            "Rex", "Pug", "He's friendly", 2, 1111111111, '5');
+    PetObject e = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.corgy),
+            "Bailey", "Corgy", "Very Energetic", 1, 2123314512, '5');
 
 
     @Override

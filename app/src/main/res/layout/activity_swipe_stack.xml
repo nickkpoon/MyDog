@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainactivity_background"
+    android:background="@color/splash_background"
     android:clipChildren="false"
     android:orientation="vertical"
     android:theme="@style/Theme.FixedSize"
@@ -19,7 +19,7 @@
         android:layout_gravity="bottom|right"
         android:layout_row="0"
         android:clickable="true"
-        app:backgroundTint="@color/splash_background"
+        app:backgroundTint="@color/fab_heart"
         app:fabSize="mini"
         app:srcCompat="@drawable/white_heart" />
 
@@ -31,9 +31,9 @@
         android:layout_row="0"
         android:layout_weight="1"
         android:clickable="true"
-        android:tint="@android:color/white"
+        android:tint="@color/splash_background"
         android:tintMode="src_in"
-        app:backgroundTint="@color/splash_background"
+        app:backgroundTint="@android:color/white"
         app:fabSize="mini"
         app:srcCompat="@android:drawable/ic_delete" />
 

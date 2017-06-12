@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#071622</color>
     <color name="colorAccent">#FF4081</color>
     <color name="primary_text">#EBE6E0</color>
-    <color name="secondary_text">#ffffff</color>
+    <color name="secondary_text">#c1c1c1</color>
     <color name="login_background">#EBE6E0</color>
 
     <color name="fab_heart">#f45f42</color>
