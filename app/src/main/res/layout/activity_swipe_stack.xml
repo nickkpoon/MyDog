@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    tools:context="edu.ucsb.cs.cs185.npoon.mydog.PetSwipeActivity">
+    android:background="@drawable/mainactivity_background"
+    tools:context="edu.ucsb.cs.cs185.npoon.mydog.PetSwipeActivity"
+    android:theme="@style/Theme.FixedSize"
+    >
 
 
     <link.fls.swipestack.SwipeStack

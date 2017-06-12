@@ -24,6 +24,11 @@
         <item name="colorControlHighlight">@color/primary_text</item>
     </style>
 
+    <style name="Theme.FixedSize" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="actionBarSize">48dip</item>
+        <item name="android:actionBarSize">48dip</item>
+    </style>
+
 
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
