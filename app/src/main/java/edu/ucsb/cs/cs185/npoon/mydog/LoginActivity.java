@@ -1,12 +1,10 @@
 package edu.ucsb.cs.cs185.npoon.mydog;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.ColorMatrixColorFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +19,29 @@ public class LoginActivity extends AppCompatActivity {
     TextView tv_forgot_pass;
     Button btn_login;
     ImageView logo;
+
+    public class AsteriskPasswordTransformationMethod extends PasswordTransformationMethod {
+        @Override
+        public CharSequence getTransformation(CharSequence source, View view) {
+            return new PasswordCharSequence(source);
+        }
+
+        private class PasswordCharSequence implements CharSequence {
+            private CharSequence mSource;
+            public PasswordCharSequence(CharSequence source) {
+                mSource = source; // Store char sequence
+            }
+            public char charAt(int index) {
+                return '*'; // This is the important part
+            }
+            public int length() {
+                return mSource.length(); // Return default
+            }
+            public CharSequence subSequence(int start, int end) {
+                return mSource.subSequence(start, end); // Return default
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         et_password.setSingleLine(false);
         et_password.setImeOptions(EditorInfo.IME_FLAG_NO_ENTER_ACTION);
         et_password.setTextColor(getResources().getColor(R.color.primary_text));
+        et_password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
 
 
 

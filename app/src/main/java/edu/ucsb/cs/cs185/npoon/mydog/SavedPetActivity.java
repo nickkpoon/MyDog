@@ -26,12 +26,24 @@ public class SavedPetActivity extends AppCompatActivity {
                 "Dixie", "Husky", "Really Independent", 3, 1232222222, '5');
         PetObject e = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.bull),
                 "Colby", "Bull", "Always wants to play catch", 6, 1123456784, '5');
+        PetObject f = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.terrier),
+                "Donny", "Terrier", "Very Engergetic", 1, 2123314512, '5');
+        PetObject g = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.rottweiler),
+                "Chuck", "Rottweiler", "Loves cuddling!", 4, 1472927821, '5');
+        PetObject h = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.beagle),
+                "Farlough", "Beagle", "Really Independent", 3, 1232222222, '5');
+        PetObject i = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.goldenretriever),
+                "Hemmy", "Golden Retriever", "Always wants to play catch", 6, 1123456784, '5');
 
         savedPets.add(a);
         savedPets.add(b);
         savedPets.add(c);
         savedPets.add(d);
         savedPets.add(e);
+        savedPets.add(f);
+        savedPets.add(g);
+        savedPets.add(h);
+        savedPets.add(i);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_pet);

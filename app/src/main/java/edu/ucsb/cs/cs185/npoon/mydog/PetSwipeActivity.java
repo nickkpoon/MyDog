@@ -2,9 +2,8 @@ package edu.ucsb.cs.cs185.npoon.mydog;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -58,6 +57,7 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
         mPets.add(c);
         mPets.add(d);
         mPets.add(e);
+
         swipeStack = (SwipeStack) findViewById(R.id.swipeStack);
         swipeStack.setAdapter(new SwipeStackAdapter(mPets));
 
