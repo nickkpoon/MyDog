@@ -2,25 +2,20 @@ package edu.ucsb.cs.cs185.npoon.mydog;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.constraint.ConstraintLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
+import android.widget.RadioButton;
 import android.widget.Toast;
-
-import java.io.File;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -31,6 +26,12 @@ import static android.app.Activity.RESULT_OK;
 public class PetPostFragment extends Fragment {
     ImageView petImg;
     EditText petName;
+    EditText petBreed;
+    EditText petInfo;
+    RadioButton smallPet;
+    RadioButton medPet;
+    RadioButton largePet;
+    EditText phone;
     Button button;
     Button sendbutton;
     NumberPicker np;
@@ -47,16 +48,33 @@ public class PetPostFragment extends Fragment {
         petImg = (ImageView) root.findViewById(R.id.petImg);
         button = (Button) root.findViewById(R.id.button);
         sendbutton = (Button) root.findViewById(R.id.sendButton);
-        petName = (EditText) root.findViewById(R.id.editText);
+        petInfo = (EditText) root.findViewById(R.id.petInfo);
+        petName = (EditText) root.findViewById(R.id.petName);
+        petBreed = (EditText) root.findViewById(R.id.petBreed);
+        phone = (EditText) root.findViewById(R.id.phoneIn);
+        smallPet = (RadioButton) root.findViewById(R.id.smallPet);
+        medPet = (RadioButton) root.findViewById(R.id.smallPet);
+        largePet = (RadioButton) root.findViewById(R.id.smallPet);
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (petImg.getTag()!=null && petName.getText()!=null) {
-                    PetSwipeActivity.mData.add(petName.getText().toString());
-                    PetSwipeActivity.mImgs.add((Uri)petImg.getTag());
+                Uri uri = (Uri)petImg.getTag();
+                String name = petName.getText().toString();
+                String breed = petBreed.getText().toString();
+                String info = petInfo.getText().toString();
+                Integer age = np.getValue();
+
+                Integer ph = Integer.parseInt(phone.getText().toString().trim());
+                Character size = null;
+                if(smallPet.isChecked()) size = 's';
+                if(medPet.isChecked()) size = 'm';
+                if(largePet.isChecked()) size = 'l';
+                if (uri!=null && !name.isEmpty() && !breed.isEmpty() && !info.isEmpty() && !age.toString().isEmpty() && !ph.toString().isEmpty() && size!=null) {
+                    PetObject pet = new PetObject(uri,name,breed,info,age,ph,size);
+                    PetSwipeActivity.mData.add(pet);
                 }
                 else{
-                    Toast.makeText(getContext(),"Must have name and picture",Toast.LENGTH_SHORT);
+                    Toast.makeText(getContext(),"Must Complete ",Toast.LENGTH_SHORT);
                 }
                 getActivity().getFragmentManager().popBackStack();
             }

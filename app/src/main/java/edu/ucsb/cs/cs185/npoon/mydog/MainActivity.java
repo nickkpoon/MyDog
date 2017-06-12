@@ -14,14 +14,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        PetSwipeActivity.mData = new ArrayList<String>();
-        PetSwipeActivity.mImgs= new ArrayList<Uri>();
+        PetSwipeActivity.mData=new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //home should have swipe stack built in

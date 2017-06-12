@@ -17,18 +17,16 @@ import java.util.List;
 import link.fls.swipestack.SwipeStack;
 
 public class PetSwipeActivity extends AppCompatActivity implements link.fls.swipestack.SwipeStack.SwipeStackListener {
-    public static ArrayList<String> mData;
-    public static ArrayList<Uri>mImgs;
+    public static ArrayList<PetObject> mData;
     private SwipeStack swipeStack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe_stack);
-
         //dummy data just to test
         swipeStack = (SwipeStack) findViewById(R.id.swipeStack);
-        swipeStack.setAdapter(new SwipeStackAdapter(mData,mImgs));
+        swipeStack.setAdapter(new SwipeStackAdapter(mData));
 
     }
 
@@ -49,11 +47,10 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
     public class SwipeStackAdapter extends BaseAdapter {
 
-        private List<String> mData;
-        private List<Uri> mImgs;
+        private List<PetObject> mData;
 
-        public SwipeStackAdapter(List<String> data, List<Uri> imgs) {
-            this.mData = data; this.mImgs=imgs;
+        public SwipeStackAdapter(List<PetObject> data) {
+            this.mData=data;
         }
 
         @Override
@@ -63,7 +60,8 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
         @Override
         public String getItem(int position) {
-            return mData.get(position);
+            String name = mData.get(position).name;
+            return name;
         }
 
         @Override
@@ -75,9 +73,9 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
         public View getView(final int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.card, parent, false);
             TextView textView = (TextView) convertView.findViewById(R.id.textViewCard);
-            textView.setText(mData.get(position));
+            textView.setText(mData.get(position).name);
             ImageView imageView = (ImageView) convertView.findViewById(R.id.imageViewCard);
-            imageView.setImageURI(mImgs.get(position));
+            imageView.setImageURI(mData.get(position).petPic);
 
             return convertView;
         }
