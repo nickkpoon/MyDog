@@ -8,8 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +17,12 @@ import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.Toast;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
 
 import static android.app.Activity.RESULT_OK;
 import static edu.ucsb.cs.cs185.npoon.mydog.PetSwipeActivity.mPets;
+
 
 /**
  * Created by wpollek on 6/11/17.
@@ -62,9 +63,9 @@ public class PetPostFragment extends Fragment {
         smallPet.setChecked(false);
         medPet.setChecked(false);
         largePet.setChecked(false);
-
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
+
             @Override
             public void onClick(View v) {
                 Uri uri = (Uri)petImg.getTag();
@@ -72,6 +73,7 @@ public class PetPostFragment extends Fragment {
                 String breed = petBreed.getText().toString();
                 String info = petInfo.getText().toString();
                 Integer age = np.getValue();
+
                 Integer ph = null;
                 if(!phone.getText().toString().isEmpty())
                     ph = Integer.parseInt(phone.getText().toString().trim());
@@ -87,14 +89,14 @@ public class PetPostFragment extends Fragment {
                 if (uri!=null && !name.isEmpty() && !breed.isEmpty() && !info.isEmpty() && !age.toString().isEmpty() && !ph.toString().isEmpty() && size!=null) {
                     PetObject pet = new PetObject(uri,name,breed,info,age,ph,size);
                     mPets.add(0,pet);
-                    Toast.makeText(getContext(), "Pet created", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Pet created", Toast.LENGTH_SHORT).show();
                     getActivity().getFragmentManager().popBackStack();
                     for(int i=0; i<mPets.size(); i++){
                         Log.d("msg", mPets.get(i).name);
                     }
                 }
                 else{
-                    Toast.makeText(getContext(),"Must Complete ",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Must Complete ",Toast.LENGTH_SHORT).show();
                 }
             }
         });

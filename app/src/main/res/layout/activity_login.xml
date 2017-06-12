@@ -67,6 +67,7 @@
 
             <EditText
                 android:theme="@style/MyEditTextStyle"
+                android:background="@drawable/text_box_underline_selector"
                 android:id="@+id/et_login_username"
                 android:layout_width="250dp"
                 android:layout_height="25dp"
@@ -76,7 +77,6 @@
                 android:textColor="@color/primary_text"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
-                android:background="@drawable/text_box_underline_selector"
                 />
 
         </LinearLayout>

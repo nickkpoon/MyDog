@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //home should have swipe stack built in
-        Button seekButton = (Button) findViewById(R.id.button3);
-        Button sendButton = (Button) findViewById(R.id.button4);
+        final Button seekButton = (Button) findViewById(R.id.button3);
+        final Button sendButton = (Button) findViewById(R.id.button4);
 
         seekButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                seekButton.setVisibility(View.GONE);
+                sendButton.setVisibility(View.GONE);
+
                 PetPostFragment fragment = new PetPostFragment();
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
