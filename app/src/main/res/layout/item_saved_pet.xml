@@ -15,25 +15,28 @@
         android:layout_height="match_parent"
         android:layout_weight="0.6"
         android:layout_marginLeft="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center"
+
+        >
 
         <TextView
             android:id="@+id/tv_savedPetName"
+            android:gravity="left"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0.6"
-            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
             android:text="Pet Name"
-            android:textSize="40dp" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/tv_savedPetInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:gravity="center"
-            android:text="Breed: breedgoesher   Age:10"/>
+            android:gravity="left"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Breed: breedgoesher   Age:10"
+            android:textSize="13dp" />
 
     </LinearLayout>
 

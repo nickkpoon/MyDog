@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 //home should have swipe stack built in
         final Button seekButton = (Button) findViewById(R.id.button3);
         final Button sendButton = (Button) findViewById(R.id.button4);
+        final ImageView image1 = (ImageView) findViewById(R.id.login_logo);
+        final TextView text1 = (TextView) findViewById(R.id.tv_login_title);
 
         seekButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
                 seekButton.setVisibility(View.GONE);
                 sendButton.setVisibility(View.GONE);
+                image1.setVisibility(View.GONE);
+                text1.setVisibility(View.GONE);
+
+
 
                 PetPostFragment fragment = new PetPostFragment();
                 FragmentManager fm = getFragmentManager();

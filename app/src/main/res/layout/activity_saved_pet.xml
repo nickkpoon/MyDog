@@ -5,17 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/primary_text"
     tools:context="edu.ucsb.cs.cs185.npoon.mydog.SavedPetActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="Saved Pets"
-        android:gravity="center"
-        android:textSize="40dp"
-        android:fontFamily="cursive"/>
 
     <ListView
+        android:layout_marginTop="10dp"
         android:id="@+id/lv_savedPets"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
