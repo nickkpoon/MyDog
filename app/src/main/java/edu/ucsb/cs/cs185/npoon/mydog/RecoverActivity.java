@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class RecoverActivity extends AppCompatActivity {
 
@@ -24,16 +23,8 @@ public class RecoverActivity extends AppCompatActivity {
     static Boolean passwordVisible = false;
     static String recoveredPassword = "";
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        recoverUsername = "";
-        questionVisible = false;
-        securityQuestion = "";
-        securityAnswer = "";
-        passwordVisible = false;
-        recoveredPassword = "";
-    }
+    Boolean usernameEnter = false;
+    Boolean passwordObtained = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,48 +38,19 @@ public class RecoverActivity extends AppCompatActivity {
         tv_password = (TextView) findViewById(R.id.tv_rec_password);
         btn_submit = (Button) findViewById(R.id.btn_rec_submit);
 
-        if(questionVisible && !passwordVisible){
-            et_username.setText(recoverUsername);
-            tv_security_question.setVisibility(View.VISIBLE);
-            et_security_answer.setVisibility(View.VISIBLE);
-            String wholeQuestion = "Your security question:\n" + securityQuestion;
-            tv_security_question.setText(wholeQuestion);
-        } else if (questionVisible && passwordVisible){
-            et_username.setText(recoverUsername);
-            tv_security_question.setVisibility(View.VISIBLE);
-            et_security_answer.setVisibility(View.VISIBLE);
-            String wholeQuestion = "Your security question:\n" + securityQuestion;
-            tv_security_question.setText(wholeQuestion);
-            tv_password_pre.setVisibility(View.VISIBLE);
-            tv_password.setText(recoveredPassword);
-            tv_password.setVisibility(View.VISIBLE);
-        }
-
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!et_username.getText().toString().trim().equals("")) {
-                    String username = et_username.getText().toString();
-                    if (!questionVisible && !passwordVisible && !recoverUsername.equals(username)) {
-                        BackgroundTask backgroundTask = new BackgroundTask(getApplicationContext());
-                        backgroundTask.execute("check_user_exists", username);
-                        recoverUsername = username;
-                    } else if (questionVisible && !passwordVisible) {
-                        if(!et_security_answer.getText().toString().trim().equals("")){
-                            if(et_security_answer.getText().toString().equals(securityAnswer)){
-                                passwordVisible = true;
-                                recreate();
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Incorrect answer", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(RecoverActivity.this, "Enter an answer", Toast.LENGTH_SHORT).show();
-                        }
-                    } else if (questionVisible && passwordVisible) {
-                        Toast.makeText(RecoverActivity.this, "You already got your password", Toast.LENGTH_SHORT).show();
-                    }
+                if(usernameEnter == false){
+                    usernameEnter = true;
+                    tv_security_question.setVisibility(View.VISIBLE);
+                    et_security_answer.setVisibility(View.VISIBLE);
+                    et_security_answer.requestFocus();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Enter your username", Toast.LENGTH_SHORT).show();
+                    passwordObtained = true;
+                    tv_password_pre.setVisibility(View.VISIBLE);
+                    tv_password.setVisibility(View.VISIBLE);
+                    tv_password.setText("password");
                 }
             }
         });

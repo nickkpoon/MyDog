@@ -29,7 +29,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/app_name"
+        android:text="Recover\n Password"
+        android:gravity="center"
         android:fontFamily="cursive"
         android:textSize="60dp"
         android:textColor="@color/primary_text"
@@ -126,12 +127,13 @@
                 android:layout_width="250dp"
                 android:layout_height="52dp"
                 android:layout_marginLeft="5dp"
-                android:gravity="bottom"
-                android:hint="Your security question:\n What's your favorite dog?"
-                android:maxLines="1"
-                android:textColor="@color/primary_text"
-                android:textSize="15sp"
-                android:layout_weight="0.94" />
+                android:layout_weight="0.94"
+                android:gravity="center"
+                android:text="Your security question:\n What's your favorite dog?"
+                android:maxLines="2"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="17sp"
+                android:visibility="invisible"/>
 
 
         </LinearLayout>
@@ -160,7 +162,8 @@
                 android:maxLines="1"
                 android:textColor="@color/primary_text"
                 android:textSize="15sp"
-                android:theme="@style/MyEditTextStyle" />
+                android:theme="@style/MyEditTextStyle"
+                android:visibility="invisible"/>
 
 
         </LinearLayout>
@@ -172,25 +175,19 @@
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:shape="@drawable/question" />
-
             <TextView
                 android:id="@+id/tv_rec_password_pre"
                 android:layout_width="250dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/text_box_underline_selector"
-                android:gravity="bottom"
-                android:hint="Your password is"
+                android:gravity="center"
+                android:text="Your password is:"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/cardview_light_background"
                 android:textSize="15sp"
-                android:theme="@style/MyEditTextStyle"
-                android:visibility="invisible"/>
+                android:visibility="invisible"
+                />
 
 
         </LinearLayout>
@@ -199,28 +196,22 @@
             android:id="@+id/linearLayout5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:shape="@drawable/lock" />
 
             <TextView
                 android:id="@+id/tv_rec_password"
                 android:layout_width="250dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/text_box_underline_selector"
-                android:gravity="bottom"
-                android:hint="security answer"
+                android:gravity="center"
+                android:text="password"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
-                android:textColor="@color/primary_text"
-                android:textSize="15sp"
-                android:theme="@style/MyEditTextStyle"
-                android:visibility="invisible"/>
+                android:textColor="@color/cardview_light_background"
+                android:textSize="20sp"
+                android:visibility="invisible"
+                />
 
 
         </LinearLayout>
