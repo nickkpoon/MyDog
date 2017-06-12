@@ -4,12 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splash_background"
+    android:background="@drawable/mainactivity_background"
     android:clipChildren="false"
     android:orientation="vertical"
     android:theme="@style/Theme.FixedSize"
     tools:context="edu.ucsb.cs.cs185.npoon.mydog.PetSwipeActivity">
 
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton4"
+        android:layout_width="73dp"
+        android:layout_height="78dp"
+        android:layout_column="13"
+        android:layout_gravity="bottom|right"
+        android:layout_row="0"
+        android:clickable="true"
+        app:backgroundTint="@color/splash_background"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/white_heart" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton5"
@@ -19,16 +31,16 @@
         android:layout_row="0"
         android:layout_weight="1"
         android:clickable="true"
-        app:backgroundTint="@color/primary_text"
-        app:fabSize="normal"
-        android:tint="@color/splash_background"
+        android:tint="@android:color/white"
         android:tintMode="src_in"
+        app:backgroundTint="@color/splash_background"
+        app:fabSize="mini"
         app:srcCompat="@android:drawable/ic_delete" />
 
     <link.fls.swipestack.SwipeStack
         android:id="@+id/swipeStack"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="409dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/default_stack_spacing"
         android:layout_marginBottom="@dimen/default_stack_spacing"
@@ -39,7 +51,6 @@
         android:layout_marginTop="@dimen/default_stack_spacing"
         android:layout_weight="96.11"
         android:elevation="@dimen/cardview_default_elevation"
-
         android:padding="@dimen/default_stack_spacing"
         android:paddingBottom="@dimen/default_stack_spacing"
         android:paddingEnd="@dimen/default_stack_spacing"
@@ -48,18 +59,6 @@
         android:paddingStart="@dimen/default_stack_spacing"
         android:paddingTop="@dimen/default_stack_spacing"
         app:stack_size="5" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton4"
-        android:layout_width="73dp"
-        android:layout_height="78dp"
-        android:layout_column="13"
-        android:layout_gravity="bottom|right"
-        android:layout_row="0"
-        android:clickable="true"
-        app:backgroundTint="@color/fab_heart"
-        app:fabSize="normal"
-        app:srcCompat="@drawable/white_heart" />
 
 
 </FrameLayout>
