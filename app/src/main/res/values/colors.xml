@@ -7,6 +7,9 @@
     <color name="secondary_text">#ffffff</color>
     <color name="login_background">#EBE6E0</color>
 
+    <color name="splash_background">#dc8f41</color>
+
+
 
 
 </resources>
