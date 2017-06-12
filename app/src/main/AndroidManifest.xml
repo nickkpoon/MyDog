@@ -41,6 +41,9 @@
         <activity
             android:name=".CreateAccActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RecoverActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PetSwipeActivity" />
         <activity android:name=".RecoverPasswordActivity"
             android:noHistory="true"></activity>

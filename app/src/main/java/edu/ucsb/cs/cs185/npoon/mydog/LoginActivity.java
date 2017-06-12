@@ -70,8 +70,10 @@ public class LoginActivity extends AppCompatActivity {
         tv_forgot_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RecoverPasswordActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RecoverActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
             }
         });
 
