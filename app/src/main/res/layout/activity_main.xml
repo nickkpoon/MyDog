@@ -37,6 +37,10 @@
         android:layout_above="@+id/button3"
         android:layout_alignLeft="@+id/button3"
         android:layout_alignStart="@+id/button3" />
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_main"
+    android:elevation="2dp"></FrameLayout>
 
 </RelativeLayout>

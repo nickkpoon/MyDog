@@ -1,12 +1,15 @@
 package edu.ucsb.cs.cs185.npoon.mydog;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +30,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PetPostFragment fragment = new PetPostFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.show(fragment);
+                ft.replace(R.id.activity_main,fragment);
+                ft.addToBackStack(null);
+                ft.commit();
+
+            }
+        });
     }
 
     @Override

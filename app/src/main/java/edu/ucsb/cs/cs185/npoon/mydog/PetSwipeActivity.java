@@ -1,5 +1,6 @@
 package edu.ucsb.cs.cs185.npoon.mydog;
 
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,6 +50,7 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
     public class SwipeStackAdapter extends BaseAdapter {
 
         private List<String> mData;
+        private List<Uri> mImgs;
 
         public SwipeStackAdapter(List<String> data) {
             this.mData = data;
