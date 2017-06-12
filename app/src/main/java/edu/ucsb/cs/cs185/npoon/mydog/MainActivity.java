@@ -2,6 +2,7 @@ package edu.ucsb.cs.cs185.npoon.mydog;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +13,15 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        PetSwipeActivity.mData = new ArrayList<String>();
+        PetSwipeActivity.mImgs= new ArrayList<Uri>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //home should have swipe stack built in

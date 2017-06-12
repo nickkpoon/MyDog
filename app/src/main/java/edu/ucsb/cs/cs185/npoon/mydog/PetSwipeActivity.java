@@ -1,5 +1,6 @@
 package edu.ucsb.cs.cs185.npoon.mydog;
 
+import android.media.Image;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,7 +17,8 @@ import java.util.List;
 import link.fls.swipestack.SwipeStack;
 
 public class PetSwipeActivity extends AppCompatActivity implements link.fls.swipestack.SwipeStack.SwipeStackListener {
-    private ArrayList<String> mData;
+    public static ArrayList<String> mData;
+    public static ArrayList<Uri>mImgs;
     private SwipeStack swipeStack;
 
     @Override
@@ -23,12 +26,9 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe_stack);
 
-        mData = new ArrayList<String>();
         //dummy data just to test
-        mData.add("hello");
-        mData.add("goodbye");
         swipeStack = (SwipeStack) findViewById(R.id.swipeStack);
-        swipeStack.setAdapter(new SwipeStackAdapter(mData));
+        swipeStack.setAdapter(new SwipeStackAdapter(mData,mImgs));
 
     }
 
@@ -52,8 +52,8 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
         private List<String> mData;
         private List<Uri> mImgs;
 
-        public SwipeStackAdapter(List<String> data) {
-            this.mData = data;
+        public SwipeStackAdapter(List<String> data, List<Uri> imgs) {
+            this.mData = data; this.mImgs=imgs;
         }
 
         @Override
@@ -76,6 +76,8 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
             convertView = getLayoutInflater().inflate(R.layout.card, parent, false);
             TextView textView = (TextView) convertView.findViewById(R.id.textViewCard);
             textView.setText(mData.get(position));
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.imageViewCard);
+            imageView.setImageURI(mImgs.get(position));
 
             return convertView;
         }

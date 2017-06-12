@@ -9,12 +9,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -26,6 +29,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class PetPostFragment extends Fragment {
     ImageView petImg;
+    EditText petName;
     Button button;
     Button sendbutton;
     NumberPicker np;
@@ -42,9 +46,17 @@ public class PetPostFragment extends Fragment {
         petImg = (ImageView) root.findViewById(R.id.petImg);
         button = (Button) root.findViewById(R.id.button);
         sendbutton = (Button) root.findViewById(R.id.sendButton);
+        petName = (EditText) root.findViewById(R.id.editText);
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (petImg.getTag()!=null && petName.getText()!=null) {
+                    PetSwipeActivity.mData.add(petName.getText().toString());
+                    PetSwipeActivity.mImgs.add((Uri)petImg.getTag());
+                }
+                else{
+                    Toast.makeText(getContext(),"Must have name and picture",Toast.LENGTH_SHORT);
+                }
                 getActivity().getFragmentManager().popBackStack();
             }
         });
@@ -104,13 +116,10 @@ public class PetPostFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==GALLERY_PICTURE&&resultCode==RESULT_OK){
+        if(requestCode==GALLERY_PICTURE||requestCode==CAMERA_REQUEST&&resultCode==RESULT_OK){
             Uri uri = data.getData();
             petImg.setImageURI(uri);
-        }
-        if(requestCode==CAMERA_REQUEST&&resultCode==RESULT_OK){
-            Uri uri = data.getData();
-            petImg.setImageURI(uri);
+            petImg.setTag(uri);
         }
 
     }
