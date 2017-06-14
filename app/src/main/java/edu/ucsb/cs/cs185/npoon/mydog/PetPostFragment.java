@@ -38,10 +38,10 @@ public class PetPostFragment extends Fragment {
     RadioButton largePet;
     EditText phone;
     Button sendbutton;
+    Button seekbutton;
+    Uri uri;
     NumberPicker np;
     protected static final int CAMERA_REQUEST = 0;
-    protected static final int GALLERY_PICTURE = 1;
-
     public static final int REQ_CODE_CHOOSE_PICTURE = 100;
 
 
@@ -53,6 +53,7 @@ public class PetPostFragment extends Fragment {
         View root = inflater.inflate(R.layout.pet_post_fragment, container, false);
         petImg = (ImageView) root.findViewById(R.id.petImg);
         sendbutton = (Button) root.findViewById(R.id.sendButton);
+        seekbutton = (Button) root.findViewById(R.id.button);
         petInfo = (EditText) root.findViewById(R.id.petInfo);
         petName = (EditText) root.findViewById(R.id.petName);
         petBreed = (EditText) root.findViewById(R.id.petBreed);
@@ -68,7 +69,6 @@ public class PetPostFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Uri uri = (Uri)petImg.getTag();
                 String name = petName.getText().toString();
                 String breed = petBreed.getText().toString();
                 String info = petInfo.getText().toString();
@@ -89,6 +89,7 @@ public class PetPostFragment extends Fragment {
                 if (uri!=null && !name.isEmpty() && !breed.isEmpty() && !info.isEmpty() && !age.toString().isEmpty() && !ph.toString().isEmpty() && size!=null) {
                     PetObject pet = new PetObject(uri,name,breed,info,age,ph,size);
                     mPets.add(0,pet);
+                    Log.d("hey",uri.toString());
                     Toast.makeText(getActivity(), "Pet created", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
@@ -101,7 +102,7 @@ public class PetPostFragment extends Fragment {
                 }
             }
         });
-        petImg.setOnClickListener(new View.OnClickListener() {
+        seekbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startDialog();
@@ -154,9 +155,8 @@ public class PetPostFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==REQ_CODE_CHOOSE_PICTURE||requestCode==CAMERA_REQUEST&&resultCode==RESULT_OK){
-            Uri uri = data.getData();
+            uri = data.getData();
             petImg.setImageURI(uri);
-            petImg.setTag(uri);
 
         }
 

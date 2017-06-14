@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment_add"
-        android:background="@android:color/transparent"
+        android:background="#AAdc8f41"
         android:clickable="true"
         android:alpha="10"
         android:layout_centerInParent="true"
-    >
+    ><android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <EditText
     android:layout_width="250dp"
     android:layout_height="wrap_content"
@@ -235,3 +238,4 @@
         android:layout_marginTop="8dp"
         app:layout_constraintVertical_bias="0.251" />
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

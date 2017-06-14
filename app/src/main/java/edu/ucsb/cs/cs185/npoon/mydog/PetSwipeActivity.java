@@ -32,15 +32,15 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
 
     PetObject a = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.lab),
-            "Charlie", "Lab", "Loves cuddling!", 4, 1472927821, '5');
+            "Charlie", "Lab", "Loves cuddling!", 4, 1472927821, 'l');
     PetObject b = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.husky),
-            "Buddy", "Husky", "Really Independent", 3, 1232222222, '5');
+            "Buddy", "Husky", "Really Independent", 3, 1232222222, 'l');
     PetObject c = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.bull),
-            "Rosie", "Bull", "Always wants to play catch", 6, 1123456784, '5');
+            "Rosie", "Bull", "Always wants to play catch", 6, 1123456784, 'm');
     PetObject d = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.pug),
-            "Rex", "Pug", "He's friendly", 2, 1111111111, '5');
+            "Rex", "Pug", "He's friendly", 2, 1111111111, 's');
     PetObject e = new PetObject(Uri.parse("android.resource://edu.ucsb.cs.cs185.npoon.mydog/drawable/" + R.drawable.corgy),
-            "Bailey", "Corgy", "Very Energetic", 1, 2123314512, '5');
+            "Bailey", "Corgy", "Very Energetic", 1, 2123314512, 's');
 
 
     @Override
@@ -53,13 +53,14 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.splash_background)));
 
 
-
-        //dummy data just to test
-        mPets.add(a);
-        mPets.add(b);
-        mPets.add(c);
-        mPets.add(d);
-        mPets.add(e);
+        //dummy data to fill initial stack
+        if (mPets.isEmpty()) {
+            mPets.add(a);
+            mPets.add(b);
+           // mPets.add(c);
+           // mPets.add(d);
+           // mPets.add(e);
+        }
 
         FloatingActionButton fabLeftSwipe = (FloatingActionButton) findViewById(R.id.floatingActionButton5);
         fabLeftSwipe.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +98,9 @@ public class PetSwipeActivity extends AppCompatActivity implements link.fls.swip
 
     @Override
     public void onStackEmpty() {
-
+        mPets.clear();
+        Intent intent = new Intent(getApplicationContext(), SavedPetActivity.class);
+        startActivity(intent);
     }
 
     public class SwipeStackAdapter extends BaseAdapter {

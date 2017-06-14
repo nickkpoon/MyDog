@@ -97,6 +97,7 @@
             <EditText
                 android:id="@+id/et_rec_username"
                 android:layout_width="250dp"
+                android:imeOptions="actionDone"
                 android:layout_height="25dp"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/text_box_underline_selector"
@@ -160,6 +161,7 @@
                 android:hint="security answer"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
+                android:imeOptions="actionDone"
                 android:textColor="@color/primary_text"
                 android:textSize="15sp"
                 android:theme="@style/MyEditTextStyle"
