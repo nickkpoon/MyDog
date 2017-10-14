@@ -1,5 +1,5 @@
 
-#MyDog: Documentation
+# MyDog: Documentation
 
 **DESIGN PROCESS**
 
